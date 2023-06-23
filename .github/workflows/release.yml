@@ -1,8 +1,7 @@
 name: CI Pipeline Release
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
 
 jobs:
   build-lib:
@@ -14,18 +13,8 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm run build
-
-      - name: Zip Release
-        uses: TheDoctor0/zip-release@0.7.0
+      - uses: actions/upload-artifact@v3
         with:
-          type: 'zip'
-          filename: 'keywind-release-${{github.ref_name}}.zip'
-          path: 'theme/keywind'
-          
-      - name: Upload Release
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          artifacts: 'keywind-release-${{github.ref_name}}.zip'
-          token: ${{ secrets.GITHUB_TOKEN }}   
-          allowUpdates: true
+        name: keywind
+        path: theme/keywind
           
