@@ -14,7 +14,9 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm run build
+      - run: pnpm build:jar
       - uses: actions/upload-artifact@v3
         with:
           name: keywind
-          path: theme/keywind
+          #path: theme/keywind
+          path: /
