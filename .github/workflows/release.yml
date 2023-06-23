@@ -19,4 +19,4 @@ jobs:
         with:
           name: keywind
           #path: theme/keywind
-          path: ./
+          path: out/keywind.jar
