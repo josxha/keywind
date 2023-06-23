@@ -1,8 +1,8 @@
 name: CI Pipeline Release
 
 on:
-  workflow_dispatch:
-  push: [master]
+  - workflow_dispatch
+  - push
 
 jobs:
   build-lib:
